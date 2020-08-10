@@ -11,6 +11,6 @@
             Prominence = 16457,
             TotalEclipse = 7381,
             Requiescat = 7383,
-            Confiteor = 16459;
+            HolySpirit = 7384;
     }
 }
