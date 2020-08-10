@@ -339,12 +339,12 @@ namespace XIVComboPlugin
                     return PLD.TotalEclipse;
                 }
             
-            // Replace Requiescat with Confiteor when under the effect of Requiescat
+            // Replace Requiescat with HolySpirit when under the effect of Requiescat
             if (Configuration.ComboPresets.HasFlag(CustomComboPreset.PaladinRequiescatCombo))
                 if (actionID == PLD.Requiescat)
                 {
                     if (SearchBuffArray(1368) && level >= 80)
-                        return PLD.Confiteor;
+                        return PLD.HolySpirit;
                     return PLD.Requiescat;
                 }
 
