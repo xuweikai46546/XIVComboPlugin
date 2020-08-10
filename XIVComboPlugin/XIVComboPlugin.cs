@@ -31,7 +31,7 @@ namespace XIVComboPlugin
 
             this.pluginInterface.CommandManager.AddHandler("/pcombo", new CommandInfo(OnCommandDebugCombo)
             {
-                HelpMessage = "Open a window to edit custom combo settings.",
+                HelpMessage = "打开编辑自定义连击设置窗口.",
                 ShowInHelp = true
             });
 
@@ -69,44 +69,44 @@ namespace XIVComboPlugin
             switch (key)
             {
                 default: return "Unknown";
-                case 1: return "Gladiator";
-                case 2: return "Pugilist";
-                case 3: return "Marauder";
-                case 4: return "Lancer";
-                case 5: return "Archer";
-                case 6: return "Conjurer";
-                case 7: return "Thaumaturge";
-                case 8: return "Carpenter";
-                case 9: return "Blacksmith";
-                case 10: return "Armorer";
-                case 11: return "Goldsmith";
-                case 12: return "Leatherworker";
-                case 13: return "Weaver";
-                case 14: return "Alchemist";
-                case 15: return "Culinarian";
-                case 16: return "Miner";
-                case 17: return "Botanist";
-                case 18: return "Fisher";
-                case 19: return "Paladin";
-                case 20: return "Monk";
-                case 21: return "Warrior";
-                case 22: return "Dragoon";
-                case 23: return "Bard";
-                case 24: return "White Mage";
-                case 25: return "Black Mage";
-                case 26: return "Arcanist";
-                case 27: return "Summoner";
-                case 28: return "Scholar";
-                case 29: return "Rogue";
-                case 30: return "Ninja";
-                case 31: return "Machinist";
-                case 32: return "Dark Knight";
-                case 33: return "Astrologian";
-                case 34: return "Samurai";
-                case 35: return "Red Mage";
-                case 36: return "Blue Mage";
-                case 37: return "Gunbreaker";
-                case 38: return "Dancer";
+                case 1: return "剑术师";
+                case 2: return "格斗家";
+                case 3: return "斧术师";
+                case 4: return "枪术师";
+                case 5: return "弓箭手";
+                case 6: return "幻术师";
+                case 7: return "咒术师";
+                case 8: return "刻木匠";
+                case 9: return "锻铁匠";
+                case 10: return "铸甲匠";
+                case 11: return "雕金匠";
+                case 12: return "制革匠";
+                case 13: return "裁衣匠";
+                case 14: return "炼金术士";
+                case 15: return "烹调师";
+                case 16: return "采矿工";
+                case 17: return "园艺工";
+                case 18: return "捕鱼人";
+                case 19: return "骑士";
+                case 20: return "武僧";
+                case 21: return "战士";
+                case 22: return "龙骑士";
+                case 23: return "诗人";
+                case 24: return "白魔法师";
+                case 25: return "黑魔法师";
+                case 26: return "秘术师";
+                case 27: return "召唤师";
+                case 28: return "学者";
+                case 29: return "双剑师";
+                case 30: return "忍者";
+                case 31: return "机工士";
+                case 32: return "暗黑骑士";
+                case 33: return "占星术士";
+                case 34: return "武士";
+                case 35: return "赤魔法师";
+                case 36: return "青魔法师";
+                case 37: return "绝枪战士";
+                case 38: return "舞者";
             }
         }
 
@@ -135,10 +135,9 @@ namespace XIVComboPlugin
             }
 
             ImGui.SetNextWindowSize(new Vector2(740, 490));
+            ImGui.Begin("自定义连击设置", ref isImguiComboSetupOpen, ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoScrollbar);
 
-            ImGui.Begin("Custom Combo Setup", ref isImguiComboSetupOpen, ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoScrollbar);
-
-            ImGui.Text("This window allows you to enable and disable custom combos to your liking.");
+            ImGui.Text("启用或禁用自定义连击.");
             ImGui.Separator();
 
             ImGui.BeginChild("scrolling", new Vector2(0, 400), true, ImGuiWindowFlags.HorizontalScrollbar);
@@ -168,7 +167,7 @@ namespace XIVComboPlugin
                             ImGui.Checkbox(flagInfo.FancyName, ref flagsSelected[j]);
                             ImGui.PopItemWidth();
                             ImGui.SameLine(275);
-                            ImGui.Checkbox("Prevent this chain from updating its icon" + $"##{j}", ref hiddenFlags[j]);
+                            ImGui.Checkbox("禁用图标更新" + $"##{j}", ref hiddenFlags[j]);
                             ImGui.TextColored(new Vector4(0.68f, 0.68f, 0.68f, 1.0f), $"#{j+1}:" + flagInfo.Description);
                             ImGui.Spacing();
                         }
@@ -196,19 +195,16 @@ namespace XIVComboPlugin
             ImGui.EndChild();
 
             ImGui.Separator();
-            if (ImGui.Button("Save"))
-            {
+            if (ImGui.Button("保存")) {
                 this.pluginInterface.SavePluginConfig(Configuration);
                 UpdateConfig();
             }
             ImGui.SameLine();
-            if (ImGui.Button("Save and Close"))
-            {
+            if (ImGui.Button("保存并关闭")) {
                 this.pluginInterface.SavePluginConfig(Configuration);
                 this.isImguiComboSetupOpen = false;
                 UpdateConfig();
             }
-
             ImGui.End();
         }
 
@@ -237,7 +233,7 @@ namespace XIVComboPlugin
                             this.Configuration.ComboPresets |= value;
                         }
 
-                        this.pluginInterface.Framework.Gui.Chat.Print("all SET");
+                        this.pluginInterface.Framework.Gui.Chat.Print("全部设置");
                     }
                     break;
                 case "unsetall":
@@ -247,7 +243,7 @@ namespace XIVComboPlugin
                             this.Configuration.ComboPresets &= value;
                         }
 
-                        this.pluginInterface.Framework.Gui.Chat.Print("all UNSET");
+                        this.pluginInterface.Framework.Gui.Chat.Print("全部设置解除");
                     }
                     break;
                 case "set":

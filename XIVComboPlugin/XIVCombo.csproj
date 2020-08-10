@@ -34,16 +34,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dalamud">
-      <HintPath>$(appdata)\XIVLauncher\addon\Hooks\Dalamud.dll</HintPath>
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\Dalamud.dll</HintPath>
     </Reference>
     <Reference Include="ImGui.NET">
-      <HintPath>$(appdata)\XIVLauncher\addon\Hooks\ImGui.NET.dll</HintPath>
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\ImGui.NET.dll</HintPath>
     </Reference>
     <Reference Include="ImGuiScene">
-      <HintPath>$(appdata)\XIVLauncher\addon\Hooks\ImGuiScene.dll</HintPath>
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\ImGuiScene.dll</HintPath>
     </Reference>
     <Reference Include="SDL2-CS">
-      <HintPath>$(appdata)\XIVLauncher\addon\Hooks\SDL2-CS.dll</HintPath>
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\SDL2-CS.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.Async">
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\Serilog.Sinks.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File">
+      <HintPath>D:\Games\FFXIV_Utils\Dalamud\Serilog.Sinks.File.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
